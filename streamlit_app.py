@@ -1,6 +1,6 @@
 # Importar paquetes de Python
 import streamlit as st
-from snowflake.snowpark.context import get_active_session
+#from snowflake.snowpark.context import get_active_session
 from snowflake.snowpark.functions import col
 
 # Escribir directamente en la aplicación
@@ -10,6 +10,12 @@ st.write(
     ***Choose the fruits you want in your custom Smoothie!***
     """
 )
+
+# Establecer conexión con Snowflake
+cnx = st.connection("snowflake")
+# Establecer una sesión
+session = cnx.session()
+
 
 # Entrada de texto para el nombre del cliente
 name_on_order = st.text_input('Enter your name for the order:', '')
